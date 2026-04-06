@@ -1,0 +1,76 @@
+body {
+  font-family: Arial;
+  background: #0f2027;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔥 Top Bar */
+.top-bar {
+  background: linear-gradient(45deg, #7e09eb, #1919a9);
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px rgba(148, 79, 79, 0.3);
+}
+
+/* 🔥 Form Box (Mobile Priority) */
+.form-box {
+  width: 90%;              /* 🔥 width কমানো */
+  max-width: 350px;        /* বড় screen এ limit */
+  margin: 20px auto;
+  padding: 25px 15px;      /* 🔥 height বাড়ানো */
+  background-color: #5e2a96;
+  border-radius: 12px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔥 Inputs */
+input, select {
+  width: 80%;             /* full width inside box */
+  padding: 14px;           /* height increase */
+  margin: 8px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+/* 🔥 Button */
+button {
+            /* full width button */
+  padding: 14px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #ff4b2b;
+  color: white;
+  font-size: 16px;
+}
+select{
+    width: 88%;
+}
+
+/* Cards */
+.card {
+   display:flex;
+    flex-direction: column;
+    
+  width: 50%;
+  margin: 10px auto;
+  padding: 15px;
+  background: #203a43;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* Status */
+.pending {
+  border-left: 5px solid orange;
+}
+
+.approved {
+  border-left: 5px solid green;
+}

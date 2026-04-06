@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reunion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔥 Top Bar -->
+<div class="top-bar">
+  <button class="admin-btn" onclick="adminLogin()">Admin</button>
+<button id="pendingBtn" onclick="filterPending()">Pending (0)</button>
+</div>
+
+<h1>🎉 খাগা উচ্চ বিদ্যালয় পুনর্মিলন</h1>
+
+<div class="form-box">
+    <h1 style="size: 10px;">রেজিস্ট্রেশন ফর্ম</h1>
+  <input id="nam" placeholder="নাম">
+  <input id="village" placeholder="গ্রাম">
+
+  <!-- ✅ Pass Year Dropdown -->
+  <select id="passyear"></select>
+   <select id="method">
+    <option>bKash</option>
+    <option>Nagad</option>
+  </select>
+
+  <input id="phone" placeholder="নাম্বার" type="number">
+  <input id="transaction" placeholder="Transaction ID">
+
+ 
+
+  <!-- ✅ Submit নিচে -->
+  <button class="submit-btn" onclick="submitForm()">Submit</button>
+</div>
+
+<div id="cards"></div>
+
+<script src="script.js"></script>
+
+<!-- ✅ Auto year generate -->
+<script>
+  let yearSelect = document.getElementById("passyear");
+  for (let i = 2025; i >= 2000; i--) {
+    let option = document.createElement("option");
+    option.value = i;
+    option.text = i;
+    yearSelect.appendChild(option);
+  }
+</script>
+
+</body>
+</html>
