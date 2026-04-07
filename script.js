@@ -2,15 +2,19 @@ const API = "https://script.google.com/macros/s/AKfycbyK4_kpFwvc_vCtCndojcvpRDda
 
 let allData = [];
 
-// submit
 function submitForm() {
   let data = {
-    name:nam.value,
+    name: nam.value,
+    father: father.value,
     village: village.value,
+    dob: dob.value,
     passyear: passyear.value,
+    tshirt: tshirt.value,
+    profession: profession.value,
+    method: method.value,
     phone: phone.value,
     transaction: transaction.value,
-    method: method.value
+    email: email.value
   };
 
   fetch(API, {
@@ -22,57 +26,33 @@ function submitForm() {
   });
 }
 
-
-// load data
 function loadAll() {
   fetch(API)
     .then(res => res.json())
     .then(data => {
       allData = data.slice(1);
       render(allData);
-
-      let pendingCount = allData.filter(r => r[10] === "Pending").length;
-      pendingBtn.innerText = "Pending (" + pendingCount + ")";
     });
 }
 
-
-// render
 function render(data) {
   let html = "";
 
-  data.forEach(row => {
+  data.forEach(r => {
     html += `
-      <div class="card ${row[10].toLowerCase()}">
-        <h3>নাম: ${row[1]}</h3>
-        <p>📞নাম্বার: ${row[8]}</p>
-        <p>🎓সেশন: ${row[5]}</p>
-        <p>🏠গ্রাম:${row[3]}</p>
-        <p>Status: ${row[10]}</p>
+      <div class="card ${r[12].toLowerCase()}">
+        <h3>নাম: ${r[1]}</h3>
+        <p style="font-weight: bold; font-size: 16px;">📞 নাম্বার: ${r[9]}</p>
+        <p style="font-weight: bold; font-size: 16px;">🎓 সেশন: ${r[5]}</p>
+        <p style="font-weight: bold; font-size: 16px;">👕টি-শার্ট: ${r[6]}</p>
+        <p style="font-weight: bold; font-size: 16px;">👨‍🏫 পেশা: ${r[7]}</p>
+        <p style="font-weight: bold; font-size: 16px;">🏠 গ্রাম: ${r[3]}</p>
+        <p style="font-weight: bold; font-size: 16px;">Status: ${r[12]}</p>
       </div>
     `;
   });
 
-  cards.innerHTML = html;
-}
-
-
-// filter pending
-function filterPending() {
-  let data = allData.filter(r => r[10] === "Pending");
-  render(data);
-}
-
-
-// admin login
-function adminLogin() {
-  let pass = prompt("Enter Admin Password");
-
-  if (pass === "admin1234") {
-    window.location.href = "admin.html";
-  } else {
-    alert("Wrong Password");
-  }
+  document.getElementById("cards").innerHTML = html;
 }
 
 loadAll();

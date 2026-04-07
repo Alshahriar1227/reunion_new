@@ -9,46 +9,119 @@
 
 <!-- 🔥 Top Bar -->
 <div class="top-bar">
-  <button class="admin-btn" onclick="adminLogin()">Admin</button>
-<button id="pendingBtn" onclick="filterPending()">Pending (0)</button>
+  <button onclick="adminLogin()">Admin</button>
+
+  <button onclick="window.location.href='pending.html'">
+    Pending Page
+  </button>
 </div>
 
-<h1>🎉 খাগা উচ্চ বিদ্যালয় পুনর্মিলন</h1>
+<h1>🎉 নিয়ামতপুর সরকারী প্রাথমিক বিদ্যালয় পূর্ণমিলনী(2026)</h1>
 
+<!-- 🔥 Form -->
 <div class="form-box">
-    <h1 style="size: 10px;">রেজিস্ট্রেশন ফর্ম</h1>
+
+  <h2>রেজিস্ট্রেশন ফর্ম</h2>
+
   <input id="nam" placeholder="নাম">
+  <input id="father" placeholder="পিতার নাম">
   <input id="village" placeholder="গ্রাম">
 
-  <!-- ✅ Pass Year Dropdown -->
+  <!-- DOB -->
+  <label>জন্মতারিখ</label>
+  <input id="dob" type="date">
+
+  <!-- Pass Year -->
+  <label>পাসের সন</label>
   <select id="passyear"></select>
-   <select id="method">
-    <option>bKash</option>
-    <option>Nagad</option>
+
+  <!-- T-Shirt -->
+  <label>টিশার্ট সাইজ</label>
+  <select id="tshirt">
+    <option value="">Select Size</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+    <option>XL</option>
+    <option>XXL</option>
+  </select>
+   <label>বর্তমান পেশা</label>
+  <select id="profession">
+    <option value="">Select Profession</option>
+    <option>Student</option>
+    <option>Teacher</option>
+    <option>Engineer</option>
+    <option>Doctor</option>#
+    <option>Farmer</option>
+    <option>Civil constructor</option>
+    <option>Businessman</option>
+    <option>Other</option>
   </select>
 
-  <input id="phone" placeholder="নাম্বার" type="number">
-  <input id="transaction" placeholder="Transaction ID">
+
+
+
 
  
 
-  <!-- ✅ Submit নিচে -->
+  <!-- Payment -->
+  <label>পেমেন্ট অপশন(send money)</label>
+  <select id="method">
+    <option>bKash(01867468595)</option>
+    <option>Nagad(01716525372)</option>
+    <option>Rocket(01912345678)</option>
+  </select>
+
+  <input id="phone" placeholder="মোবাইল নাম্বার">
+  <input id="transaction" placeholder="Transaction ID">
+  <input id="email" placeholder="Email">
+
   <button class="submit-btn" onclick="submitForm()">Submit</button>
+
 </div>
 
+<!-- 🔥 Cards -->
+ <div>
+  <p style="font-weight: bold; font-size: 26px;">রেজিস্ট্রেশনকৃত শিক্ষার্থীর তথ্যাবলী</p>
+ </div>
 <div id="cards"></div>
+
+<!-- footer -->
+<footer style="background-color: rgb(123, 17, 222); margin-top: 20px;padding: 20px;">
+  <div style="font-size: 16px;">
+    <p>School Name: নিয়ামতপুর সরকারী প্রাথমিক বিদ্যালয়</p>
+    <p>Address : নিয়ামতপুর, বহুলী, সিরাজগঞ্জ সদর।</p>
+    <p>Contact : তারিকুল হাসান সুজন (01867468595/01716525372)</p>
+  </div>
+  <p>&copy; 2023 Reunion. All rights reserved.</p>
+</footer>
+
 
 <script src="script.js"></script>
 
-<!-- ✅ Auto year generate -->
+<!-- 🔥 Auto Year -->
 <script>
   let yearSelect = document.getElementById("passyear");
+
   for (let i = 2025; i >= 2000; i--) {
     let option = document.createElement("option");
     option.value = i;
     option.text = i;
     yearSelect.appendChild(option);
   }
+</script>
+
+<!-- 🔥 Admin Login -->
+<script>
+function adminLogin() {
+  let pass = prompt("Enter Admin Password");
+
+  if (pass === "admin1234") {
+    window.location.href = "admin.html";
+  } else {
+    alert("Wrong Password");
+  }
+}
 </script>
 
 </body>
